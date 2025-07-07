@@ -72,3 +72,6 @@ $(".client_owl-carousel").owlCarousel({
         }
     }
 });
+$(function () {
+    $('#welcomeModal').modal('show');
+});
