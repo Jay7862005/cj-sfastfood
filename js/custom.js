@@ -106,3 +106,48 @@ function myMap() {
     title: "C.J's Fast Food"
   });
 }
+// ========== WELCOME POPUP SCRIPT ==========
+
+document.addEventListener('DOMContentLoaded', function() {
+  const popupOverlay = document.getElementById('welcomePopupOverlay');
+  const closeBtn = document.getElementById('closePopupBtn');
+  const viewMenuBtn = document.querySelector('.popup-button');
+
+  // Function to show the popup
+  function showPopup() {
+    if (popupOverlay) {
+      popupOverlay.classList.remove('hidden');
+      popupOverlay.style.display = 'flex';
+    }
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+    if (popupOverlay) {
+        popupOverlay.classList.add('hidden');
+        // A small delay to allow the fade-out animation to complete
+        setTimeout(() => {
+            popupOverlay.style.display = 'none';
+        }, 300);
+    }
+  }
+
+  // Show the popup 2 seconds after the page loads
+  setTimeout(showPopup, 2000);
+
+  // Event listeners to close the popup
+  if (closeBtn) {
+    closeBtn.addEventListener('click', hidePopup);
+  }
+  if (viewMenuBtn) {
+    viewMenuBtn.addEventListener('click', hidePopup);
+  }
+  if (popupOverlay) {
+    popupOverlay.addEventListener('click', function(event) {
+      // Close only if the dark overlay itself is clicked
+      if (event.target === popupOverlay) {
+        hidePopup();
+      }
+    });
+  }
+});
