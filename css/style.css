@@ -1122,5 +1122,6 @@ a:focus {
 
 /* Helper class to hide the popup */
 .hidden {
+    opacity: 0;
     display: none;
 }
