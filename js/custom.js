@@ -75,3 +75,11 @@ $(".client_owl-carousel").owlCarousel({
 $(function () {
     $('#welcomeModal').modal('show');
 });
+window.addEventListener('scroll', function () {
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+      el.classList.add('show');
+    }
+  });
+});
+
