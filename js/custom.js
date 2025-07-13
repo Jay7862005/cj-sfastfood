@@ -106,30 +106,39 @@ function myMap() {
     title: "C.J's Fast Food"
   });
 }
-// ========== WELCOME POPUP SCRIPT ==========
+// ========== WELCOME POPUP SCRIPT (CORRECTED) ==========
 
 document.addEventListener('DOMContentLoaded', function() {
   const popupOverlay = document.getElementById('welcomePopupOverlay');
   const closeBtn = document.getElementById('closePopupBtn');
   const viewMenuBtn = document.querySelector('.popup-button');
 
+  if (!popupOverlay) {
+    console.error("Popup overlay not found!");
+    return;
+  }
+
   // Function to show the popup
   function showPopup() {
-    if (popupOverlay) {
-      popupOverlay.classList.remove('hidden');
-      popupOverlay.style.display = 'flex';
-    }
+    // First, make the element part of the layout
+    popupOverlay.style.display = 'flex'; 
+    
+    // Next, trigger the fade-in animation by removing the class that controls opacity
+    // A tiny delay ensures the browser registers the 'display' change before the transition starts.
+    setTimeout(() => {
+        popupOverlay.classList.remove('hidden');
+    }, 10); 
   }
 
   // Function to hide the popup
   function hidePopup() {
-    if (popupOverlay) {
-        popupOverlay.classList.add('hidden');
-        // A small delay to allow the fade-out animation to complete
-        setTimeout(() => {
-            popupOverlay.style.display = 'none';
-        }, 300);
-    }
+    // Start the fade-out animation
+    popupOverlay.classList.add('hidden');
+    
+    // After the animation finishes (300ms), set display to none so it doesn't block clicks
+    setTimeout(() => {
+        popupOverlay.style.display = 'none';
+    }, 300); 
   }
 
   // Show the popup 2 seconds after the page loads
@@ -140,14 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
     closeBtn.addEventListener('click', hidePopup);
   }
   if (viewMenuBtn) {
+    // This will now close the popup when the user clicks the menu button
     viewMenuBtn.addEventListener('click', hidePopup);
   }
-  if (popupOverlay) {
-    popupOverlay.addEventListener('click', function(event) {
-      // Close only if the dark overlay itself is clicked
-      if (event.target === popupOverlay) {
-        hidePopup();
-      }
-    });
-  }
+  popupOverlay.addEventListener('click', function(event) {
+    // Close only if the dark overlay itself is clicked
+    if (event.target === popupOverlay) {
+      hidePopup();
+    }
+  });
 });
