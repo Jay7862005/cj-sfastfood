@@ -1,1 +1,111 @@
+/* ========== THEME OVERRIDE STYLES ========== */
 
+/* 1. Define the New Color and Font Variables */
+:root {
+  --primary: #e63946;    /* New Red */
+  --accent: #f1c40f;     /* New Yellow */
+  --dark: #222831;       /* Old Dark Color (Kept for compatibility) */
+  --light: #fff8f0;     /* New Light Background */
+  --text: #2c2c2c;       /* New Text Color */
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+}
+
+/* Import new fonts if needed */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* 2. Apply a New Global Look and Feel */
+body {
+  font-family: var(--body-font) !important; /* Use !important to override old styles */
+  color: var(--text);
+  background-color: var(--light);
+}
+
+h1, h2, h3, h4, h5, h6, .heading_container h2, .navbar-brand span, .footer-logo {
+  font-family: var(--heading-font) !important;
+}
+
+/* 3. Re-style Existing Components with New Theme */
+
+/* Header and Navigation */
+.header_section, .hero_area .bg-box {
+  background: var(--primary); /* Use new red background */
+}
+
+.custom_nav-container .navbar-nav .nav-link:hover,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  color: var(--accent); /* Use yellow for active/hover links */
+}
+
+/* Buttons */
+.order_online, .btn-box .btn1, .book_section .form_container button {
+  background-color: var(--accent) !important;
+  color: #000 !important;
+  border-radius: 50px !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  padding: 10px 25px;
+  border: none;
+}
+.order_online:hover, .btn-box .btn1:hover, .book_section .form_container button:hover {
+  background-color: #fff !important;
+  color: var(--primary) !important;
+  transform: scale(1.05);
+}
+
+/* Hero Section Text */
+.slider_section .detail-box h1 {
+  color: #ffffff;
+  font-size: 3rem;
+}
+
+.slider_section .detail-box a {
+  background-color: var(--accent) !important;
+  color: #000 !important;
+}
+
+/* Food/Offer Section Boxes */
+.food_section .box, .offer_section .box {
+  background: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.food_section .box:hover, .offer_section .box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.food_section .filters_menu li.active {
+    background-color: var(--primary); /* Use new red for active filter */
+    color: white;
+}
+
+.food_section .box .detail-box {
+  background-color: transparent !important;
+  color: var(--text) !important;
+}
+.food_section .box .detail-box h5, .food_section .box .detail-box h6 {
+  color: var(--primary);
+}
+
+/* About Section */
+.about_section {
+    background-color: white !important;
+    color: var(--text) !important;
+}
+.about_section .detail-box h2 {
+    color: var(--primary) !important;
+}
+.about_section .detail-box a {
+    background-color: var(--accent) !important;
+    color: #000 !important;
+}
+
+/* Footer Section */
+.footer_section {
+    background-color: #1a1a1a; /* New dark footer color */
+}
