@@ -1,3 +1,48 @@
+/* ========== ADD THIS CODE TO THE TOP ========== */
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: var(--body-font); /* Moved from old body rule */
+  color: var(--text);
+  background-color: var(--light);
+  line-height: 1.6;
+}
+
+/* This makes the main content area expand and pushes the footer to the bottom */
+main {
+  flex-grow: 1;
+}
+
+.header_section {
+  background-color: var(--primary);
+  color: white;
+  padding: 15px 0;
+}
+
+.navbar {
+  display: flex; /* This will align your navigation links horizontally */
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ============================================= */
+
+/* Your existing CSS rules start here... */
+:root {
+  --primary: #e63946;
+  ...
+}
 /* ========== GLOBAL VARIABLES ========== */
 :root {
   --primary: #e63946;
